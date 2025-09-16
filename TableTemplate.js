@@ -1,7 +1,14 @@
-// TableTemplate.js
+/**
+ * @file TableTemplate.js
+ * @summary Implements a JavaScript class (TableTemplate) with a static method (fillIn).
+ * @author Group 18
+ * @updated Sep. 16, 2025,
+ */
+
 // Implements a JavaScript class (TableTemplate) with a static method (fillIn)
 // that fills in a table's cells based on a provided dictionary and optional column name.
 class TableTemplate {
+
     // Fills in the table with the given ID using the provided dictionary.
     static fillIn(tableId, dict, columnName) {
         const table = document.getElementById(tableId);
@@ -46,6 +53,7 @@ class TableTemplate {
             }
         }
 
+        // Make the table visible if it was hidden
         if (table.style.visibility === "hidden") {
             table.style.visibility = "visible";
         }
