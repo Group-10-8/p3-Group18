@@ -5,6 +5,7 @@ class DatePicker{
     constructor(id, onDateSelect) {
         this.id = id;
         this.onDateSelect = onDateSelect;
+        this.currentDate - new Date();
     }
 
     // Helper function to create calendar header
@@ -110,7 +111,7 @@ class DatePicker{
             const dayNumber = days[i].day
             const dayDiv = document.createElement('div');
 
-            if (days[i].dimmed == true) {
+            if (days[i].dimmed === true) {
                 dayDiv.className = 'day-div-dimmed';
             } else {
                 dayDiv.className = 'day-div';
