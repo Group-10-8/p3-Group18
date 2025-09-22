@@ -67,14 +67,18 @@ class DatePicker{
         return row
     }
 
-    getCalendarGridData() {
-        const month = this.currentDate.getMonth();
+    calculateCalendarDays(){
+        const month = this.currentDate.getMonth(); 
         const year = this.currentDate.getFullYear();
         const firstDayIndex = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const daysInPrevMonth = new Date(year, month, 0).getDate();
 
-        const totalCells = 42;
+        let totalCells = firstDayIndex + daysInMonth;
+        if (totalCells % 7 !== 0){
+            totalCells += 7- (totalCells % 7);
+        }
+
         const days = [];
 
         for (let i = 0; i < totalCells; i++) {
@@ -95,6 +99,10 @@ class DatePicker{
             days.push(dayObj);
         }
 
+        return days;
+    }
+
+    createCalendarGrid(days) {
         const daysGrid = document.createElement('div');
         daysGrid.className = 'days-grid-div';
 
@@ -135,7 +143,8 @@ class DatePicker{
         const weekDayRow = this.getWeekdayHeader();
         container.appendChild(weekDayRow);
 
-        const daysGrid = this.getCalendarGridData();
+        const days = this.calculateCalendarDays();
+        const daysGrid = this.createCalendarGrid(days);
         container.appendChild(daysGrid);
     }
 }
