@@ -1,1 +1,28 @@
+/* table creation */
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 
+/* Day-of-week header */
+th {
+    background: #687291;
+    color: white;
+    padding: 3px;
+    text-align: center;
+}
+
+/* Normal day cells */
+td {
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    background: whitesmoke;
+    border: 1px solid #fff; /* subtle separation */
+}
+
+/* Days outside the month */
+td.not-in-month {
+    background: transparent;
+    color: #999;
+}
