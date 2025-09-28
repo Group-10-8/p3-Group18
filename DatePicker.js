@@ -9,11 +9,13 @@ class DatePicker{
     }
 
     // Helper function to create calendar header
+    //builds top navigation 
     getCalendarHeader() {
         const date = this.currentDate;
         const month = date.getMonth();
         const year = date.getFullYear();
 
+        //month lookup
         const months = [
             'January', 'February', 'March', 'April', 'May', 'June',
             'July', 'August', 'September', 'October', 'November', 'December'
@@ -22,10 +24,12 @@ class DatePicker{
         const header = document.createElement('div');
         header.className = 'calendar-header';
 
+        //previous month
         const prevButton = document.createElement('button');
         prevButton.className = 'nav-button';
         prevButton.innerHTML = '<';
 
+        //next month
         const nextButton = document.createElement('button');
         nextButton.className = 'nav-button';
         nextButton.innerHTML = '>';
@@ -52,6 +56,7 @@ class DatePicker{
     }
 
     // Helper function to display the days of the week
+    //row for day of week
     getWeekdayHeader() {
         const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
@@ -68,13 +73,17 @@ class DatePicker{
         return row
     }
 
+    //days in calendar
     calculateCalendarDays(){
+
+        //month, week, days counts
         const month = this.currentDate.getMonth(); 
         const year = this.currentDate.getFullYear();
         const firstDayIndex = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const daysInPrevMonth = new Date(year, month, 0).getDate();
 
+        //total cells needed calculation
         let totalCells = firstDayIndex + daysInMonth;
         if (totalCells % 7 !== 0){
             totalCells += 7- (totalCells % 7);
@@ -103,6 +112,7 @@ class DatePicker{
         return days;
     }
 
+    //calendar grid for each day
     createCalendarGrid(days) {
         const daysGrid = document.createElement('div');
         daysGrid.className = 'days-grid-div';
