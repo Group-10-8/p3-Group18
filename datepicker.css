@@ -1,10 +1,12 @@
 /* table creation */
+/* structure for table with border and design */
 table {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
 /* Day-of-week header */
+/* Design for header, color, spacing and postion */
 th {
     background: #687291;
     color: white;
@@ -13,6 +15,7 @@ th {
 }
 
 /* Normal day cells */
+/* sizing, color, and position design */
 td {
     text-align: center;
     width: 28px;
